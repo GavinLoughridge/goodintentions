@@ -1,24 +1,505 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="baH-Fw-axR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Intention Table View Controller-->
+        <scene sceneID="ozA-iw-hKn">
+            <objects>
+                <tableViewController id="u3M-6r-v3j" customClass="intentionTableViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xri-8Y-wYG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="473"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.85490196078431369" green="0.9882352941176471" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="intentionTableViewCell" rowHeight="90" id="FcO-hD-HMu" customClass="intentionTableViewCell" customModule="intentions" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FcO-hD-HMu" id="xfq-ij-NkH">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRR-l2-1NW">
+                                            <rect key="frame" x="32" y="10" width="311" height="68.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dJ-QW-Dj9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="242.5" height="68.5"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
+                                                    <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-Ve-vcv" customClass="progressChart" customModule="intentions" customModuleProvider="target">
+                                                    <rect key="frame" x="242.5" y="0.0" width="68.5" height="68.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="68.599999999999994" id="H7K-uc-BHw"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZRR-l2-1NW" firstAttribute="leading" secondItem="xfq-ij-NkH" secondAttribute="leading" constant="32" id="1Yy-Es-Iqn"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZRR-l2-1NW" secondAttribute="trailing" constant="32" id="X5p-c7-xUC"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZRR-l2-1NW" secondAttribute="bottom" constant="11" id="XFZ-aM-jmO"/>
+                                        <constraint firstItem="ZRR-l2-1NW" firstAttribute="top" secondItem="xfq-ij-NkH" secondAttribute="top" constant="10" id="vPr-yU-KH2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.85490196078431369" green="0.9882352941176471" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="4dJ-QW-Dj9" id="RrK-Rn-saI"/>
+                                    <outlet property="progressChart" destination="pBj-Ve-vcv" id="iXJ-dJ-aar"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u3M-6r-v3j" id="rqP-Of-EGd"/>
+                            <outlet property="delegate" destination="u3M-6r-v3j" id="WUd-T3-Mcb"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tgU-AD-UqU">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wRe-oL-rdp">
+                            <color key="tintColor" red="0.96078431372549022" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Z6o-Ns-frO" kind="presentation" identifier="AddItem" id="H1x-Td-NtO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6EA-Pk-bfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="-129"/>
+        </scene>
+        <!--GOOD INTENTIONS-->
+        <scene sceneID="kcR-NN-UfY">
+            <objects>
+                <viewController id="eAQ-3I-wkC" customClass="landingViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z6E-rR-W9B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3s2-5N-Q8v">
+                                <rect key="frame" x="0.0" y="130" width="375" height="473"/>
+                                <connections>
+                                    <segue destination="u3M-6r-v3j" kind="embed" id="3HB-jF-XJS"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjZ-XB-qen" userLabel="indicator">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                <subviews>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5i-SO-68K">
+                                        <rect key="frame" x="8" y="8" width="359" height="114"/>
+                                        <subviews>
+                                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZN4-LE-LSb">
+                                                <rect key="frame" x="42" y="3.5" width="275" height="107"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hbU-fp-927">
+                                                        <rect key="frame" x="76" y="0.0" width="123" height="20"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOCUS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-Hz-Vmm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="66" height="20"/>
+                                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOGA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1P9-pq-YaJ">
+                                                                <rect key="frame" x="74" y="0.0" width="49" height="20"/>
+                                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                <color key="textColor" red="0.55686274509803924" green="0.81568627450980391" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gLh-0R-Jy7">
+                                                        <rect key="frame" x="0.0" y="28" width="275" height="79"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="64N-xR-PTe">
+                                                                <rect key="frame" x="0.0" y="0.0" width="275" height="79"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nTr-vD-ods">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="188" height="79"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jOA-I6-c8W">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="188" height="23"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqo-6k-VLd">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="23"/>
+                                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                                        <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00.00 hrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vza-1H-u7c">
+                                                                                        <rect key="frame" x="62.5" y="0.0" width="125.5" height="23"/>
+                                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                                        <color key="textColor" red="0.55686274509803924" green="0.81568627450980391" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ak9-HE-cbj">
+                                                                                <rect key="frame" x="0.0" y="31" width="188" height="20"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPENT:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04y-Hq-PEy">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="20"/>
+                                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                                        <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00.00 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-HD-3VB">
+                                                                                        <rect key="frame" x="70.5" y="0.0" width="117.5" height="20"/>
+                                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                                        <color key="textColor" red="0.55686274509803924" green="0.81568627450980391" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nqG-jV-ip1">
+                                                                                <rect key="frame" x="0.0" y="59" width="188" height="20"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROGRESS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9n-mb-yCS">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="102.5" height="20"/>
+                                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                                        <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOm-IA-wkA">
+                                                                                        <rect key="frame" x="110.5" y="0.0" width="77.5" height="20"/>
+                                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                                                        <color key="textColor" red="0.55686274509803924" green="0.81568627450980391" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-ar-NZZ" customClass="progressChart" customModule="intentions" customModuleProvider="target">
+                                                                        <rect key="frame" x="196" y="0.0" width="79" height="79"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="79" id="vxC-6r-daL"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="nTr-vD-ods" firstAttribute="top" secondItem="64N-xR-PTe" secondAttribute="top" id="POg-vH-ZKf"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="64N-xR-PTe" secondAttribute="trailing" id="JvZ-d2-NoH"/>
+                                                            <constraint firstItem="64N-xR-PTe" firstAttribute="leading" secondItem="gLh-0R-Jy7" secondAttribute="leading" id="hro-VT-hXV"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="ucu-o0-94b"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ZN4-LE-LSb" firstAttribute="centerY" secondItem="r5i-SO-68K" secondAttribute="centerY" id="31g-Oz-mrx"/>
+                                            <constraint firstItem="ZN4-LE-LSb" firstAttribute="centerX" secondItem="r5i-SO-68K" secondAttribute="centerX" id="9Ue-mA-F2O"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI5-Zu-Hle">
+                                        <rect key="frame" x="8" y="8" width="359" height="114"/>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">WHAT ARE YOU
+FOCUSED ON
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.22745098039215686" green="0.37647058823529411" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="17" name="ArialRoundedMTBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="RIGHT NOW?">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.22745098039215686" green="0.37647058823529411" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="17" name="ArialRoundedMTBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.29803921568627451" green="0.59999999999999998" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="r5i-SO-68K" secondAttribute="trailing" constant="8" id="0nE-tL-g8h"/>
+                                    <constraint firstItem="dI5-Zu-Hle" firstAttribute="top" secondItem="xjZ-XB-qen" secondAttribute="top" constant="8" id="Da2-5a-F9Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="dI5-Zu-Hle" secondAttribute="trailing" constant="8" id="I6Z-wn-nDt"/>
+                                    <constraint firstItem="dI5-Zu-Hle" firstAttribute="leading" secondItem="xjZ-XB-qen" secondAttribute="leading" constant="8" id="WMP-hj-S78"/>
+                                    <constraint firstItem="r5i-SO-68K" firstAttribute="top" secondItem="xjZ-XB-qen" secondAttribute="top" constant="8" id="awn-iw-6Vc"/>
+                                    <constraint firstAttribute="bottom" secondItem="dI5-Zu-Hle" secondAttribute="bottom" constant="8" id="nwZ-ZC-4AT"/>
+                                    <constraint firstAttribute="bottom" secondItem="r5i-SO-68K" secondAttribute="bottom" constant="8" id="o3D-xA-rs8"/>
+                                    <constraint firstAttribute="height" constant="130" id="rnu-yM-lA5"/>
+                                    <constraint firstItem="r5i-SO-68K" firstAttribute="leading" secondItem="xjZ-XB-qen" secondAttribute="leading" constant="8" id="upp-bb-IZs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xjZ-XB-qen" firstAttribute="trailing" secondItem="YuX-T8-aFe" secondAttribute="trailing" id="1gp-RK-0cL"/>
+                            <constraint firstItem="xjZ-XB-qen" firstAttribute="leading" secondItem="YuX-T8-aFe" secondAttribute="leading" id="3bI-7Q-ecu"/>
+                            <constraint firstItem="YuX-T8-aFe" firstAttribute="bottom" secondItem="3s2-5N-Q8v" secondAttribute="bottom" id="6k5-5y-sas"/>
+                            <constraint firstItem="3s2-5N-Q8v" firstAttribute="leading" secondItem="YuX-T8-aFe" secondAttribute="leading" id="HsP-DT-YKb"/>
+                            <constraint firstItem="xjZ-XB-qen" firstAttribute="top" secondItem="YuX-T8-aFe" secondAttribute="top" id="ef7-Aj-noh"/>
+                            <constraint firstItem="3s2-5N-Q8v" firstAttribute="top" secondItem="xjZ-XB-qen" secondAttribute="bottom" id="iAc-2Z-kgS"/>
+                            <constraint firstItem="3s2-5N-Q8v" firstAttribute="trailing" secondItem="YuX-T8-aFe" secondAttribute="trailing" id="la8-Aa-FSD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YuX-T8-aFe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="GOOD INTENTIONS" id="dek-at-Ktr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Atz-Wi-aGX">
+                            <color key="tintColor" red="0.96078431372549022" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Z6o-Ns-frO" kind="presentation" id="Fn6-5F-EV5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="indicatorFocused" destination="r5i-SO-68K" id="YQH-Fe-Ya0"/>
+                        <outlet property="indicatorGoalTime" destination="vza-1H-u7c" id="hgR-bX-4bF"/>
+                        <outlet property="indicatorName" destination="1P9-pq-YaJ" id="gdm-OH-Xix"/>
+                        <outlet property="indicatorProgressChart" destination="P6m-ar-NZZ" id="l1q-o6-Kz2"/>
+                        <outlet property="indicatorProgressPercent" destination="iOm-IA-wkA" id="FDR-Vn-ISP"/>
+                        <outlet property="indicatorProgressTime" destination="Ubp-HD-3VB" id="T4p-pp-kCO"/>
+                        <outlet property="indicatorUnfocused" destination="dI5-Zu-Hle" id="4wk-EC-4E1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkm-kC-TUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.799999999999997" y="716.49175412293857"/>
+        </scene>
+        <!--NEW INTENTION-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-l8-JMO">
+                                <rect key="frame" x="0.0" y="32" width="375" height="278"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HlN-VL-dls">
+                                        <rect key="frame" x="105.5" y="0.0" width="164.5" height="58"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set an intention to..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-h4-QRL">
+                                                <rect key="frame" x="0.0" y="0.0" width="164.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Be mindful..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H4d-Pl-Buj">
+                                                <rect key="frame" x="2" y="28" width="160" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="nEs-s0-Iov"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Uh-zj-7HE">
+                                        <rect key="frame" x="92.5" y="90" width="190.5" height="97"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myC-2V-8zt">
+                                                <rect key="frame" x="74.5" y="0.0" width="41.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="15 minutes..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KuS-PI-KyZ">
+                                                <rect key="frame" x="35" y="28" width="120" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="e4L-rs-3nE"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fcP-cH-UG9">
+                                                <rect key="frame" x="0.0" y="66" width="190.5" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA2-XX-eEF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="31"/>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                        <color key="textColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pJW-Uu-7I0">
+                                                        <rect key="frame" x="72.5" y="0.0" width="51" height="31"/>
+                                                        <color key="backgroundColor" red="0.98823529409999999" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.98823529409999999" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="onTintColor" red="0.9882352941176471" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="thumbTintColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuE-Xd-1u7">
+                                                        <rect key="frame" x="129.5" y="0.0" width="61" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="M5a-6m-Vok"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                        <color key="textColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s8k-Ky-ZB1">
+                                        <rect key="frame" x="94" y="219" width="187" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M1-fX-QdI">
+                                                <rect key="frame" x="62.5" y="0.0" width="62" height="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zqv-oO-iqM">
+                                                <rect key="frame" x="0.0" y="28" width="187" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU5-NF-mE0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="61" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="DGy-Kr-qlg"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                        <color key="textColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64I-KZ-i6g">
+                                                        <rect key="frame" x="69" y="0.0" width="51" height="31"/>
+                                                        <color key="backgroundColor" red="0.98823529409999999" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.98823529409999999" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="onTintColor" red="0.9882352941176471" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="thumbTintColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9Q-D3-dN4">
+                                                        <rect key="frame" x="126" y="0.0" width="61" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="xTp-zz-uOt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                        <color key="textColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85486749387254901" green="0.9882352941176471" blue="0.9457334676659126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bbI-l8-JMO" firstAttribute="top" secondItem="Uee-0j-aNJ" secondAttribute="top" constant="32" id="5Am-ay-4kR"/>
+                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="trailing" secondItem="bbI-l8-JMO" secondAttribute="trailing" id="RBR-ll-a4A"/>
+                            <constraint firstItem="bbI-l8-JMO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iUZ-vV-awu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="NEW INTENTION" id="dfd-Ne-VaQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2cv-Kd-AO1">
+                            <color key="tintColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="oXo-bK-7uP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="SET" id="JV0-JZ-xdW">
+                            <color key="tintColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="attemptSave:" destination="BYZ-38-t0r" id="Bef-Z2-8z6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="goalTextField" destination="KuS-PI-KyZ" id="R7P-F8-Q4N"/>
+                        <outlet property="goalUnitHours" destination="pJW-Uu-7I0" id="vcd-si-7FC"/>
+                        <outlet property="nameTextField" destination="H4d-Pl-Buj" id="pkZ-Yt-OEO"/>
+                        <outlet property="resetPeriodUnitWeek" destination="64I-KZ-i6g" id="G8O-FD-Uu1"/>
+                        <outlet property="saveButton" destination="JV0-JZ-xdW" id="YPf-Fw-9bv"/>
+                        <segue destination="Knw-RU-eLF" kind="unwind" identifier="unwindSegueToIntentionList" unwindAction="unwindToIntentionListWithSender:" id="oFG-YH-jwr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Knw-RU-eLF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="1700" y="124.58770614692655"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ilo-xs-4dM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z6o-Ns-frO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="64y-DJ-HK8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.29803921568627451" green="0.59999999999999998" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                            <color key="textColor" red="0.9882352941176471" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gkx-AZ-5Yu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xXS-99-fPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920.79999999999995" y="125.4872563718141"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a77-Wp-rsy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="baH-Fw-axR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IRc-XT-Y8W">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.29803921568627451" green="0.59999999999999998" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.9882352941176471" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eAQ-3I-wkC" kind="relationship" relationship="rootViewController" id="0HO-bv-vcx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbD-QQ-GQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-574" y="716"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fn6-5F-EV5"/>
+    </inferredMetricsTieBreakers>
 </document>

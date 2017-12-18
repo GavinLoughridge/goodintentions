@@ -7,21 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281CF7CB1FCB6ED900F66D35 /* landingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CF7CA1FCB6ED900F66D35 /* landingViewController.swift */; };
 		28614A9D1FC75ABE00987520 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614A9C1FC75ABE00987520 /* AppDelegate.swift */; };
 		28614A9F1FC75ABE00987520 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614A9E1FC75ABE00987520 /* ViewController.swift */; };
 		28614AA21FC75ABE00987520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28614AA01FC75ABE00987520 /* Main.storyboard */; };
 		28614AA41FC75ABE00987520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28614AA31FC75ABE00987520 /* Assets.xcassets */; };
 		28614AA71FC75ABE00987520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28614AA51FC75ABE00987520 /* LaunchScreen.storyboard */; };
-		28614AB21FC75ABE00987520 /* intentionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AB11FC75ABE00987520 /* intentionsTests.swift */; };
-		28614ABD1FC75ABE00987520 /* intentionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614ABC1FC75ABE00987520 /* intentionsUITests.swift */; };
-		28614AC21FC75ABE00987520 /* intentions WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28614AC11FC75ABE00987520 /* intentions WatchKit App.app */; };
-		28614AC81FC75ABE00987520 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28614AC61FC75ABE00987520 /* Interface.storyboard */; };
-		28614ACA1FC75ABE00987520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28614AC91FC75ABE00987520 /* Assets.xcassets */; };
-		28614AD11FC75ABE00987520 /* intentions WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28614AD01FC75ABE00987520 /* intentions WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		28614AD61FC75ABE00987520 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AD51FC75ABE00987520 /* InterfaceController.swift */; };
-		28614AD81FC75ABE00987520 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AD71FC75ABE00987520 /* ExtensionDelegate.swift */; };
-		28614ADA1FC75ABE00987520 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AD91FC75ABE00987520 /* NotificationController.swift */; };
-		28614ADC1FC75ABE00987520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28614ADB1FC75ABE00987520 /* Assets.xcassets */; };
+		28614AF31FC795C200987520 /* intention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AF21FC795C200987520 /* intention.swift */; };
+		28614AF51FC79B7C00987520 /* intention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AF21FC795C200987520 /* intention.swift */; };
+		28614AF71FC7A7AD00987520 /* intentionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AF61FC7A7AD00987520 /* intentionTableViewCell.swift */; };
+		289CD44B1FC8F9BF00A0A34C /* focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CD44A1FC8F9BF00A0A34C /* focus.swift */; };
+		28A2AEDF1FC7CF9700B4E4CF /* pieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A2AEDE1FC7CF9700B4E4CF /* pieChart.swift */; };
+		28A2AEE11FC7DA9300B4E4CF /* progressChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A2AEE01FC7DA9300B4E4CF /* progressChart.swift */; };
+		28A534DE1FC7E89500D2A932 /* intentionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A534DD1FC7E89500D2A932 /* intentionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +37,6 @@
 			remoteGlobalIDString = 28614A981FC75ABE00987520;
 			remoteInfo = intentions;
 		};
-		28614AC31FC75ABE00987520 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28614A911FC75ABE00987520 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 28614AC01FC75ABE00987520;
-			remoteInfo = "intentions WatchKit App";
-		};
 		28614AD21FC75ABE00987520 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 28614A911FC75ABE00987520 /* Project object */;
@@ -62,49 +53,31 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				28614AD11FC75ABE00987520 /* intentions WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		28614AE81FC75ABE00987520 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				28614AC21FC75ABE00987520 /* intentions WatchKit App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		28614A991FC75ABE00987520 /* intentions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intentions.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		281CF7CA1FCB6ED900F66D35 /* landingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landingViewController.swift; sourceTree = "<group>"; };
+		2829C7E41FCA4B6200B0BF50 /* intentions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intentions.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2829C7E51FCA4B6200B0BF50 /* intentions WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "intentions WatchKit App.app"; path = "/Users/gavinloughridge/Work/xcode/intentions/build/Debug-watchos/intentions WatchKit App.app"; sourceTree = "<absolute>"; };
+		2829C7E61FCA4B6200B0BF50 /* intentions WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = "intentions WatchKit Extension.appex"; path = "/Users/gavinloughridge/Work/xcode/intentions/build/Debug-watchos/intentions WatchKit Extension.appex"; sourceTree = "<absolute>"; };
+		2829C7E71FCA4B6200B0BF50 /* intentionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = intentionsTests.xctest; path = "/Users/gavinloughridge/Work/xcode/intentions/build/Debug-iphoneos/intentionsTests.xctest"; sourceTree = "<absolute>"; };
+		2829C7E81FCA4B6200B0BF50 /* intentionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = intentionsUITests.xctest; path = "/Users/gavinloughridge/Work/xcode/intentions/build/Debug-iphoneos/intentionsUITests.xctest"; sourceTree = "<absolute>"; };
 		28614A9C1FC75ABE00987520 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28614A9E1FC75ABE00987520 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28614AA11FC75ABE00987520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28614AA31FC75ABE00987520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28614AA61FC75ABE00987520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28614AA81FC75ABE00987520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28614AAD1FC75ABE00987520 /* intentionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = intentionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		28614AB11FC75ABE00987520 /* intentionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intentionsTests.swift; sourceTree = "<group>"; };
-		28614AB31FC75ABE00987520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28614AB81FC75ABE00987520 /* intentionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = intentionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		28614ABC1FC75ABE00987520 /* intentionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intentionsUITests.swift; sourceTree = "<group>"; };
-		28614ABE1FC75ABE00987520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28614AC11FC75ABE00987520 /* intentions WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "intentions WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		28614AC71FC75ABE00987520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		28614AC91FC75ABE00987520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28614ACB1FC75ABE00987520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28614AD01FC75ABE00987520 /* intentions WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "intentions WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		28614AD51FC75ABE00987520 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		28614AD71FC75ABE00987520 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		28614AD91FC75ABE00987520 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		28614ADB1FC75ABE00987520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28614ADD1FC75ABE00987520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28614ADE1FC75ABE00987520 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		28614AF21FC795C200987520 /* intention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intention.swift; sourceTree = "<group>"; };
+		28614AF61FC7A7AD00987520 /* intentionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intentionTableViewCell.swift; sourceTree = "<group>"; };
+		289CD44A1FC8F9BF00A0A34C /* focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = focus.swift; sourceTree = "<group>"; };
+		28A2AEDE1FC7CF9700B4E4CF /* pieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pieChart.swift; sourceTree = "<group>"; };
+		28A2AEE01FC7DA9300B4E4CF /* progressChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressChart.swift; sourceTree = "<group>"; };
+		28A534DD1FC7E89500D2A932 /* intentionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intentionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,24 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				28614A9B1FC75ABE00987520 /* intentions */,
-				28614AB01FC75ABE00987520 /* intentionsTests */,
-				28614ABB1FC75ABE00987520 /* intentionsUITests */,
-				28614AC51FC75ABE00987520 /* intentions WatchKit App */,
-				28614AD41FC75ABE00987520 /* intentions WatchKit Extension */,
-				28614A9A1FC75ABE00987520 /* Products */,
+				2829C7E41FCA4B6200B0BF50 /* intentions.app */,
 			);
-			sourceTree = "<group>";
-		};
-		28614A9A1FC75ABE00987520 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				28614A991FC75ABE00987520 /* intentions.app */,
-				28614AAD1FC75ABE00987520 /* intentionsTests.xctest */,
-				28614AB81FC75ABE00987520 /* intentionsUITests.xctest */,
-				28614AC11FC75ABE00987520 /* intentions WatchKit App.app */,
-				28614AD01FC75ABE00987520 /* intentions WatchKit Extension.appex */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		28614A9B1FC75ABE00987520 /* intentions */ = {
@@ -168,53 +125,19 @@
 			children = (
 				28614A9C1FC75ABE00987520 /* AppDelegate.swift */,
 				28614A9E1FC75ABE00987520 /* ViewController.swift */,
+				281CF7CA1FCB6ED900F66D35 /* landingViewController.swift */,
+				28614AF21FC795C200987520 /* intention.swift */,
+				289CD44A1FC8F9BF00A0A34C /* focus.swift */,
+				28614AF61FC7A7AD00987520 /* intentionTableViewCell.swift */,
+				28A534DD1FC7E89500D2A932 /* intentionTableViewController.swift */,
+				28A2AEDE1FC7CF9700B4E4CF /* pieChart.swift */,
+				28A2AEE01FC7DA9300B4E4CF /* progressChart.swift */,
 				28614AA01FC75ABE00987520 /* Main.storyboard */,
 				28614AA31FC75ABE00987520 /* Assets.xcassets */,
 				28614AA51FC75ABE00987520 /* LaunchScreen.storyboard */,
 				28614AA81FC75ABE00987520 /* Info.plist */,
 			);
 			path = intentions;
-			sourceTree = "<group>";
-		};
-		28614AB01FC75ABE00987520 /* intentionsTests */ = {
-			isa = PBXGroup;
-			children = (
-				28614AB11FC75ABE00987520 /* intentionsTests.swift */,
-				28614AB31FC75ABE00987520 /* Info.plist */,
-			);
-			path = intentionsTests;
-			sourceTree = "<group>";
-		};
-		28614ABB1FC75ABE00987520 /* intentionsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				28614ABC1FC75ABE00987520 /* intentionsUITests.swift */,
-				28614ABE1FC75ABE00987520 /* Info.plist */,
-			);
-			path = intentionsUITests;
-			sourceTree = "<group>";
-		};
-		28614AC51FC75ABE00987520 /* intentions WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				28614AC61FC75ABE00987520 /* Interface.storyboard */,
-				28614AC91FC75ABE00987520 /* Assets.xcassets */,
-				28614ACB1FC75ABE00987520 /* Info.plist */,
-			);
-			path = "intentions WatchKit App";
-			sourceTree = "<group>";
-		};
-		28614AD41FC75ABE00987520 /* intentions WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				28614AD51FC75ABE00987520 /* InterfaceController.swift */,
-				28614AD71FC75ABE00987520 /* ExtensionDelegate.swift */,
-				28614AD91FC75ABE00987520 /* NotificationController.swift */,
-				28614ADB1FC75ABE00987520 /* Assets.xcassets */,
-				28614ADD1FC75ABE00987520 /* Info.plist */,
-				28614ADE1FC75ABE00987520 /* PushNotificationPayload.apns */,
-			);
-			path = "intentions WatchKit Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,16 +150,14 @@
 				28614A951FC75ABE00987520 /* Sources */,
 				28614A961FC75ABE00987520 /* Frameworks */,
 				28614A971FC75ABE00987520 /* Resources */,
-				28614AE81FC75ABE00987520 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				28614AC41FC75ABE00987520 /* PBXTargetDependency */,
 			);
 			name = intentions;
 			productName = intentions;
-			productReference = 28614A991FC75ABE00987520 /* intentions.app */;
+			productReference = 2829C7E41FCA4B6200B0BF50 /* intentions.app */;
 			productType = "com.apple.product-type.application";
 		};
 		28614AAC1FC75ABE00987520 /* intentionsTests */ = {
@@ -254,7 +175,7 @@
 			);
 			name = intentionsTests;
 			productName = intentionsTests;
-			productReference = 28614AAD1FC75ABE00987520 /* intentionsTests.xctest */;
+			productReference = 2829C7E71FCA4B6200B0BF50 /* intentionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		28614AB71FC75ABE00987520 /* intentionsUITests */ = {
@@ -272,7 +193,7 @@
 			);
 			name = intentionsUITests;
 			productName = intentionsUITests;
-			productReference = 28614AB81FC75ABE00987520 /* intentionsUITests.xctest */;
+			productReference = 2829C7E81FCA4B6200B0BF50 /* intentionsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		28614AC01FC75ABE00987520 /* intentions WatchKit App */ = {
@@ -289,7 +210,7 @@
 			);
 			name = "intentions WatchKit App";
 			productName = "intentions WatchKit App";
-			productReference = 28614AC11FC75ABE00987520 /* intentions WatchKit App.app */;
+			productReference = 2829C7E51FCA4B6200B0BF50 /* intentions WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		28614ACF1FC75ABE00987520 /* intentions WatchKit Extension */ = {
@@ -306,7 +227,7 @@
 			);
 			name = "intentions WatchKit Extension";
 			productName = "intentions WatchKit Extension";
-			productReference = 28614AD01FC75ABE00987520 /* intentions WatchKit Extension.appex */;
+			productReference = 2829C7E61FCA4B6200B0BF50 /* intentions WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -352,7 +273,7 @@
 				Base,
 			);
 			mainGroup = 28614A901FC75ABE00987520;
-			productRefGroup = 28614A9A1FC75ABE00987520 /* Products */;
+			productRefGroup = 28614A901FC75ABE00987520;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -394,8 +315,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28614ACA1FC75ABE00987520 /* Assets.xcassets in Resources */,
-				28614AC81FC75ABE00987520 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,7 +322,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28614ADC1FC75ABE00987520 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,8 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28614AF31FC795C200987520 /* intention.swift in Sources */,
+				28A534DE1FC7E89500D2A932 /* intentionTableViewController.swift in Sources */,
 				28614A9F1FC75ABE00987520 /* ViewController.swift in Sources */,
+				281CF7CB1FCB6ED900F66D35 /* landingViewController.swift in Sources */,
+				28614AF71FC7A7AD00987520 /* intentionTableViewCell.swift in Sources */,
+				28A2AEDF1FC7CF9700B4E4CF /* pieChart.swift in Sources */,
 				28614A9D1FC75ABE00987520 /* AppDelegate.swift in Sources */,
+				289CD44B1FC8F9BF00A0A34C /* focus.swift in Sources */,
+				28A2AEE11FC7DA9300B4E4CF /* progressChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28614AB21FC75ABE00987520 /* intentionsTests.swift in Sources */,
+				28614AF51FC79B7C00987520 /* intention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +356,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28614ABD1FC75ABE00987520 /* intentionsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,9 +363,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28614ADA1FC75ABE00987520 /* NotificationController.swift in Sources */,
-				28614AD81FC75ABE00987520 /* ExtensionDelegate.swift in Sources */,
-				28614AD61FC75ABE00987520 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,11 +378,6 @@
 			isa = PBXTargetDependency;
 			target = 28614A981FC75ABE00987520 /* intentions */;
 			targetProxy = 28614AB91FC75ABE00987520 /* PBXContainerItemProxy */;
-		};
-		28614AC41FC75ABE00987520 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 28614AC01FC75ABE00987520 /* intentions WatchKit App */;
-			targetProxy = 28614AC31FC75ABE00987520 /* PBXContainerItemProxy */;
 		};
 		28614AD31FC75ABE00987520 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -485,14 +401,6 @@
 				28614AA61FC75ABE00987520 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		28614AC61FC75ABE00987520 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28614AC71FC75ABE00987520 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -680,6 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEFE8W9WG3;
 				INFOPLIST_FILE = intentions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gavinloughridge.intentions;
@@ -694,6 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEFE8W9WG3;
 				INFOPLIST_FILE = intentions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gavinloughridge.intentions;
