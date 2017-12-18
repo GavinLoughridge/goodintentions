@@ -17,7 +17,6 @@ var focus: Focus! {
 }
 
 class Focus: NSObject, NSCoding {
-    
     //Mark: Properties
     
     var intention: Intention
