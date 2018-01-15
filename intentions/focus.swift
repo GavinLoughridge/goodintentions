@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 var focusUpdated = Notification.Name("focusUpdated")
-var focus: Focus! {
+var focus = Focus() {
     didSet {
         NotificationCenter.default.post(name: focusUpdated, object: nil)
     }
@@ -19,8 +19,8 @@ var focus: Focus! {
 class Focus: NSObject, NSCoding {
     //Mark: Properties
     
-    var intention: Intention
-    var began: Date
+    var intention = Intention()
+    var began = Date()
     
     //MARK: Archiving Paths
     
@@ -36,11 +36,11 @@ class Focus: NSObject, NSCoding {
     
     //Mark: Initialization
     
-    init?(intention: Intention, began: Date) {
-        // Initialize stored properties
-        self.intention = intention
-        self.began = began
-    }
+//    init?(intention: Intention, began: Date) {
+//        // Initialize stored properties
+//        self.intention = intention
+//        self.began = began
+//    }
     
     //MARK: NSCoding
     func encode(with aCoder: NSCoder) {
@@ -49,16 +49,14 @@ class Focus: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let intention = aDecoder.decodeObject(forKey: PropertyKey.intention) as? Intention else {
-            os_log("Unable to decode the intention for a focus object.", log: OSLog.default, type: .debug)
-            return nil
+        self.init()
+        
+        if let intention = aDecoder.decodeObject(forKey: PropertyKey.intention) as? Intention {
+            self.intention = intention
         }
         
-        guard let began = aDecoder.decodeObject(forKey: PropertyKey.began) as? Date else {
-            os_log("Unable to decode the date for a focus object.", log: OSLog.default, type: .debug)
-            return nil
+        if let began = aDecoder.decodeObject(forKey: PropertyKey.began) as? Date {
+            self.began = began
         }
-        
-        self.init(intention: intention, began: began)
     }
 }

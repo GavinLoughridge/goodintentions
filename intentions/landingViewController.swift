@@ -52,7 +52,7 @@ class landingViewController: UIViewController {
     // MARK: public functions
     
     @objc func updateIndicator() {
-        if focus != nil {
+        if focus.intention.name != "" {
             updateFocusIndicator(intention: focus.intention)
             setIndicator(focused: true)
             saveFocus()

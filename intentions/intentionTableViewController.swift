@@ -11,6 +11,8 @@ import UIKit
 class intentionTableViewController: UITableViewController {
     
     // MARK: Properties
+    var focus = Focus()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -81,7 +83,7 @@ class intentionTableViewController: UITableViewController {
 
         cell.nameLabel.text = intention.name
         
-        if focus != nil && intention.name == focus.intention.name {
+        if intention.name == focus.intention.name {
             cell.backgroundColor = UIColor(red: 252 / 255, green: 239 / 255, blue: 239 / 255, alpha: 1)
         } else {
             cell.backgroundColor = UIColor(red: 218 / 255, green: 252 / 255, blue: 241 / 255, alpha: 1)
@@ -105,8 +107,8 @@ class intentionTableViewController: UITableViewController {
             updateFocus()
             
             // remove focus if nessecary
-            if focus != nil && intention.name == focus.intention.name {
-                focus = nil
+            if intention.name == focus.intention.name {
+                focus = Focus()
             }
             // Delete the row from the data source
             intentionsData.remove(at: indexPath.row)
@@ -125,10 +127,11 @@ class intentionTableViewController: UITableViewController {
 
         updateFocus()
         
-        if focus != nil && intention.name == focus.intention.name {
-            focus = nil
+        if intention.name == focus.intention.name {
+            focus = Focus()
         } else {
-            focus = Focus(intention: intention, began: Date())
+            focus.intention = intention
+            focus.began = Date()
         }
 
         updateModel()
@@ -208,9 +211,10 @@ class intentionTableViewController: UITableViewController {
 
     private func updateFocus() {
         // update current focus progress if one exists
-        if focus != nil, let focusIntention = (intentionsData.filter{ $0.name == focus.intention.name}.first) {
+        if focus.intention.name != "", let focusIntention = (intentionsData.filter{ $0.name == focus.intention.name}.first) {
             updatePosition(intention: focusIntention, began: focus.began)
-            focus = Focus(intention: focusIntention, began: Date())
+            focus.intention = focusIntention
+            focus.began = Date()
         }
     }
     
