@@ -11,7 +11,7 @@ import UIKit
 class intentionTableViewController: UITableViewController {
     
     // MARK: Properties
-    var focus = Focus()
+    //var focus = Focus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +108,7 @@ class intentionTableViewController: UITableViewController {
             
             // remove focus if nessecary
             if intention.name == focus.intention.name {
-                focus = Focus()
+                focus.intention = Intention()
             }
             // Delete the row from the data source
             intentionsData.remove(at: indexPath.row)
@@ -128,7 +128,7 @@ class intentionTableViewController: UITableViewController {
         updateFocus()
         
         if intention.name == focus.intention.name {
-            focus = Focus()
+            focus.intention = Intention()
         } else {
             focus.intention = intention
             focus.began = Date()

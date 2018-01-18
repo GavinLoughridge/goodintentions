@@ -52,18 +52,12 @@ class landingViewController: UIViewController {
     // MARK: public functions
     
     @objc func updateIndicator() {
-        if focus.intention.name != "" {
+        // only update the focus indicator if a valid focus exists
+        if (focus.intention.name != "") {
             updateFocusIndicator(intention: focus.intention)
-            setIndicator(focused: true)
-            saveFocus()
-        } else {
-            setIndicator(focused: false)
-            do {
-                try FileManager.default.removeItem(atPath: Focus.ArchiveURL.path)
-            } catch {
-                fatalError("couldnt remove focus file")
-            }
         }
+        setIndicator()
+        saveFocus()
     }
     
     // MARK: private functions
@@ -80,11 +74,12 @@ class landingViewController: UIViewController {
         indicatorProgressChart.chartValue = Float(intention.progressInMinutes / intention.goalInMinutes)
     }
     
-    private func setIndicator(focused: Bool) {
-        if focused {
+    private func setIndicator() {
+        if (focus.intention.name != "") {
             indicatorUnfocused.alpha = 0
             indicatorFocused.alpha = 1
         } else {
+            //
             indicatorUnfocused.alpha = 1
             indicatorFocused.alpha = 0
         }
