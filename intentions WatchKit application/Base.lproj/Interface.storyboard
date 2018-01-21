@@ -9,18 +9,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Intentions-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="intentions_WatchKit_application" customModuleProvider="target">
+                <controller identifier="Intentions" hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="intentions_WatchKit_application" customModuleProvider="target">
                     <items>
                         <table alignment="left" id="ymB-tI-aEZ"/>
-                        <label alignment="left" text="Label" id="6Fe-Rq-qgN"/>
-                        <picker height="100" alignment="left" id="Kp2-Zc-bHf"/>
+                        <label alignment="left" text="TEXT GOES HERE" id="6Fe-Rq-qgN"/>
+                        <picker height="100" alignment="left" id="Kp2-Zc-bHf">
+                            <connections>
+                                <action selector="intentionPickerAction:" destination="AgC-eL-Hgc" id="KEa-hz-m6q"/>
+                            </connections>
+                        </picker>
+                        <label alignment="left" text="More Text" id="uK6-mM-tmI"/>
                     </items>
                     <connections>
                         <outlet property="focusLabel" destination="6Fe-Rq-qgN" id="4tL-fx-SR1"/>
-                        <outlet property="intentionPicker" destination="Kp2-Zc-bHf" id="bnE-uH-tBn"/>
+                        <outlet property="intentionPicker" destination="Kp2-Zc-bHf" id="tcY-dh-ACl"/>
                     </connections>
                 </controller>
             </objects>
