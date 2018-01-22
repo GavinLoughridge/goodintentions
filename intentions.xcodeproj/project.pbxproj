@@ -24,11 +24,11 @@
 		28ADDEF02013FE3B007BD086 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ADDEEE2013FE3B007BD086 /* Interface.storyboard */; };
 		28ADDEF22013FE3B007BD086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28ADDEF12013FE3B007BD086 /* Assets.xcassets */; };
 		28ADDEF92013FE3B007BD086 /* intentions WatchKit application Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28ADDEF82013FE3B007BD086 /* intentions WatchKit application Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		28ADDEFE2013FE3B007BD086 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADDEFD2013FE3B007BD086 /* InterfaceController.swift */; };
 		28ADDF002013FE3B007BD086 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADDEFF2013FE3B007BD086 /* ExtensionDelegate.swift */; };
 		28ADDF022013FE3B007BD086 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADDF012013FE3B007BD086 /* NotificationController.swift */; };
 		28ADDF042013FE3B007BD086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28ADDF032013FE3B007BD086 /* Assets.xcassets */; };
 		28ADDF092013FE3B007BD086 /* intentions WatchKit application.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28ADDEEC2013FE3B007BD086 /* intentions WatchKit application.app */; };
+		28DE0DDA2015554C00D88F8F /* IntentionInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE0DD92015554C00D88F8F /* IntentionInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,12 +93,12 @@
 		28ADDEF12013FE3B007BD086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28ADDEF32013FE3B007BD086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28ADDEF82013FE3B007BD086 /* intentions WatchKit application Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "intentions WatchKit application Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		28ADDEFD2013FE3B007BD086 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		28ADDEFF2013FE3B007BD086 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		28ADDF012013FE3B007BD086 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		28ADDF032013FE3B007BD086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28ADDF052013FE3B007BD086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28ADDF062013FE3B007BD086 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		28DE0DD92015554C00D88F8F /* IntentionInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,12 +164,12 @@
 		28ADDEFC2013FE3B007BD086 /* intentions WatchKit application Extension */ = {
 			isa = PBXGroup;
 			children = (
-				28ADDEFD2013FE3B007BD086 /* InterfaceController.swift */,
 				28ADDEFF2013FE3B007BD086 /* ExtensionDelegate.swift */,
 				28ADDF012013FE3B007BD086 /* NotificationController.swift */,
 				28ADDF032013FE3B007BD086 /* Assets.xcassets */,
 				28ADDF052013FE3B007BD086 /* Info.plist */,
 				28ADDF062013FE3B007BD086 /* PushNotificationPayload.apns */,
+				28DE0DD92015554C00D88F8F /* IntentionInterfaceController.swift */,
 			);
 			path = "intentions WatchKit application Extension";
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 				28ADDF022013FE3B007BD086 /* NotificationController.swift in Sources */,
 				28ADDF002013FE3B007BD086 /* ExtensionDelegate.swift in Sources */,
 				28173B992014E33700A2EFF0 /* intention.swift in Sources */,
-				28ADDEFE2013FE3B007BD086 /* InterfaceController.swift in Sources */,
+				28DE0DDA2015554C00D88F8F /* IntentionInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
