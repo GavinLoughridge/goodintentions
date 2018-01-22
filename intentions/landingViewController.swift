@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class landingViewController: UIViewController {
+class landingViewController: UIViewController, WCSessionDelegate {
     
     // MARK: properties
 
@@ -23,7 +24,26 @@ class landingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
     }
+    
+//    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+//        print("Message received: ",message)
+//    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        // Begin the activation process for the new Apple Watch.
+        WCSession.default.activate()
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,6 +72,7 @@ class landingViewController: UIViewController {
     // MARK: public functions
     
     @objc func updateIndicator() {
+        print("updating indicator")
         // only update the focus indicator if a valid focus exists
         if (focus.intention.name != "") {
             updateFocusIndicator(intention: focus.intention)

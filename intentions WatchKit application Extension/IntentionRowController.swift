@@ -13,11 +13,11 @@ class IntentionRowController: NSObject {
     @IBOutlet var intentionLabel: WKInterfaceLabel!
     @IBOutlet var intentionGroup: WKInterfaceGroup!
     
-    var intention: String? {
+    var intentionName: String? {
         didSet {
-            guard let intention = intention else {return}
+            guard let intentionName = intentionName else {return}
             
-            intentionLabel.setText(intention)
+            intentionLabel.setText(intentionName)
         }
     }
     

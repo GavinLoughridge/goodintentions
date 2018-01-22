@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		28173B992014E33700A2EFF0 /* intention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AF21FC795C200987520 /* intention.swift */; };
-		28173B9A2014E33C00A2EFF0 /* focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CD44A1FC8F9BF00A0A34C /* focus.swift */; };
 		281CF7CB1FCB6ED900F66D35 /* landingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CF7CA1FCB6ED900F66D35 /* landingViewController.swift */; };
 		28295D53201572DD007D15D5 /* IntentionRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28295D52201572DD007D15D5 /* IntentionRowController.swift */; };
+		28295D5420158731007D15D5 /* focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CD44A1FC8F9BF00A0A34C /* focus.swift */; };
 		28614A9D1FC75ABE00987520 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614A9C1FC75ABE00987520 /* AppDelegate.swift */; };
 		28614A9F1FC75ABE00987520 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614A9E1FC75ABE00987520 /* ViewController.swift */; };
 		28614AA21FC75ABE00987520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28614AA01FC75ABE00987520 /* Main.storyboard */; };
@@ -328,11 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28173B9A2014E33C00A2EFF0 /* focus.swift in Sources */,
 				28295D53201572DD007D15D5 /* IntentionRowController.swift in Sources */,
 				28ADDF022013FE3B007BD086 /* NotificationController.swift in Sources */,
 				28ADDF002013FE3B007BD086 /* ExtensionDelegate.swift in Sources */,
 				28173B992014E33700A2EFF0 /* intention.swift in Sources */,
+				28295D5420158731007D15D5 /* focus.swift in Sources */,
 				28DE0DDA2015554C00D88F8F /* IntentionInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

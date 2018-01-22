@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
+
+//        if WCSession.isSupported() {
+//            let session = WCSession.default
+//            session.delegate = self
+//            session.activate()
+//        }
         return true
     }
 
@@ -44,4 +51,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+//extension AppDelegate: WCSessionDelegate {
+//
+//    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+//        print("Message received: ",message)
+//    }
+//
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//    }
+//
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//    }
+//
+//
+//
+//    //below 3 functions are needed to be able to connect to several Watches
+//
+//    func sessionDidDeactivate(_ session: WCSession) {
+//        // Begin the activation process for the new Apple Watch.
+//        WCSession.default.activate()
+//    }
+//
+//    func sessionDidBecomeInactive(_ session: WCSession) {}
+//}
 

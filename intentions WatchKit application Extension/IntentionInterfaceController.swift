@@ -21,19 +21,29 @@ class IntentionInterfaceController: WKInterfaceController {
     
     var selected = "meditation"
     
+    override func willActivate() {
+        super.willActivate()
+        
+        let tempFocus = focus
+        
+        print("temp focus is:", tempFocus)
+        print("temp focus intention is:", tempFocus.intention)
+        print("temp focus intention name is:", tempFocus.intention.name)
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        intentionsTable.setNumberOfRows(testIntentions.count, withRowType: "IntentionRow")
+        intentionsTable.setNumberOfRows(intentionsData.count, withRowType: "IntentionRow")
         
         for index in 0..<intentionsTable.numberOfRows {
             guard let controller = intentionsTable.rowController(at: index) as? IntentionRowController else {continue}
             
-            let intention = testIntentions[index]
+            let intention = intentionsData[index]
             
-            controller.intention = intention
+            controller.intentionName = intention.name
             
-            if intention == selected {
+            if intention.name == focus.intention.name {
                 controller.isSelected = true
             } else {
                 controller.isSelected = false
@@ -44,19 +54,22 @@ class IntentionInterfaceController: WKInterfaceController {
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         guard let controller = intentionsTable.rowController(at: rowIndex) as? IntentionRowController else {return}
         
-        let intention = testIntentions[rowIndex]
+        let intention = intentionsData[rowIndex]
         
-        if intention == selected {
+        if intention.name == focus.intention.name {
             controller.isSelected = false
             selected = ""
         } else {
-            if let selectedIndex = testIntentions.index(of: selected) {
-                guard let selectedController = intentionsTable.rowController(at: selectedIndex) as? IntentionRowController else {return}
-                selectedController.isSelected = false
+            for index in 0..<intentionsData.count {
+                if intentionsData[index].name == focus.intention.name {
+                    guard let selectedController = intentionsTable.rowController(at: index) as? IntentionRowController else {return}
+                    selectedController.isSelected = false
+                }
             }
             
             controller.isSelected = true
-            selected = intention
+            focus.intention = intention
+            focus.began = Date()
         }
     }
 }
