@@ -11,50 +11,52 @@ import Foundation
 
 class IntentionInterfaceController: WKInterfaceController {
 
-    @IBOutlet var myLabel: WKInterfaceLabel!
-    @IBOutlet var intentionPicker: WKInterfacePicker!
+    @IBOutlet var intentionsTable: WKInterfaceTable!
     
-    var data: String? {
-        didSet {
-            guard let data = data else {return}
-            myLabel.setText(data)
-        }
-    }
+    var testIntentions = [
+        "meditation",
+        "run",
+        "study"
+    ]
     
-    var myList: [(String, String)] = [
-        ("MEDITATE", "test a"),
-        ("RUN", "test b"),
-        ("TYPE", "test c"),
-        ("CODE", "test d") ]
-    
-    var selected = 0
+    var selected = "meditation"
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        data = "my new data"
+        intentionsTable.setNumberOfRows(testIntentions.count, withRowType: "IntentionRow")
         
-        myLabel.setText("my new text")
-    }
-    
-    override func willActivate() {
-        super.willActivate()
-        
-        let pickerItems: [WKPickerItem] = myList.map {
-            let pickerItem = WKPickerItem()
-            pickerItem.title = $0.0
-            pickerItem.caption = $0.1
-            return pickerItem
+        for index in 0..<intentionsTable.numberOfRows {
+            guard let controller = intentionsTable.rowController(at: index) as? IntentionRowController else {continue}
+            
+            let intention = testIntentions[index]
+            
+            controller.intention = intention
+            
+            if intention == selected {
+                controller.isSelected = true
+            } else {
+                controller.isSelected = false
+            }
         }
-        intentionPicker.setItems(pickerItems)
     }
     
-    @IBAction func intentionPickerChanged(_ value: Int) {
-        NSLog("List Picker: \(myList[value].0) selected")
-        selected = value
-    }
-    
-    @IBAction func setFocus() {
-        myLabel.setText("Focus: \(myList[selected].0)")
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        guard let controller = intentionsTable.rowController(at: rowIndex) as? IntentionRowController else {return}
+        
+        let intention = testIntentions[rowIndex]
+        
+        if intention == selected {
+            controller.isSelected = false
+            selected = ""
+        } else {
+            if let selectedIndex = testIntentions.index(of: selected) {
+                guard let selectedController = intentionsTable.rowController(at: selectedIndex) as? IntentionRowController else {return}
+                selectedController.isSelected = false
+            }
+            
+            controller.isSelected = true
+            selected = intention
+        }
     }
 }

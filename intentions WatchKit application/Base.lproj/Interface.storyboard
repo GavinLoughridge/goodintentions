@@ -9,30 +9,33 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Intention-->
+        <!--Intentions-->
         <scene sceneID="czl-N7-P5Y">
             <objects>
-                <controller identifier="Intention" hidesWhenLoading="NO" id="yop-RM-hfa" customClass="IntentionInterfaceController" customModule="intentions_WatchKit_application_Extension">
+                <controller identifier="IntentionsController" title="Intentions" id="yop-RM-hfa" customClass="IntentionInterfaceController" customModule="intentions_WatchKit_application_Extension">
                     <items>
-                        <label alignment="left" text="Focus: none" id="paR-DU-PGI"/>
-                        <picker height="100" alignment="left" id="Z4z-Te-oXg">
-                            <connections>
-                                <action selector="intentionPickerChanged:" destination="yop-RM-hfa" id="rO6-HO-JBB"/>
-                            </connections>
-                        </picker>
-                        <button width="1" alignment="left" title="SET" id="taB-xT-hgd">
-                            <connections>
-                                <action selector="setFocus" destination="yop-RM-hfa" id="9lK-9v-eec"/>
-                            </connections>
-                        </button>
+                        <table alignment="left" id="Rl9-Iv-8Im">
+                            <items>
+                                <tableRow identifier="IntentionRow" id="CB6-A2-tqa" customClass="IntentionRowController" customModule="intentions_WatchKit_application_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="fvT-dO-q5n">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Label" id="ddA-9L-7b4"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="intentionGroup" destination="fvT-dO-q5n" id="NZw-2M-Rwp"/>
+                                        <outlet property="intentionLabel" destination="ddA-9L-7b4" id="EcQ-Eu-6lE"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
-                        <outlet property="intentionPicker" destination="Z4z-Te-oXg" id="V4a-6i-847"/>
-                        <outlet property="myLabel" destination="paR-DU-PGI" id="2Gf-fX-C42"/>
+                        <outlet property="intentionsTable" destination="Rl9-Iv-8Im" id="qvr-8t-NJ9"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="178" y="418"/>
+            <point key="canvasLocation" x="142" y="418"/>
         </scene>
     </scenes>
 </document>
