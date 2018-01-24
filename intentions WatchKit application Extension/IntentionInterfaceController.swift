@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 class IntentionInterfaceController: WKInterfaceController {
-
+    
     @IBOutlet var intentionsTable: WKInterfaceTable!
     
     var testIntentions = [
@@ -24,26 +24,21 @@ class IntentionInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         
-        let tempFocus = focus
-        
-        print("temp focus is:", tempFocus)
-        print("temp focus intention is:", tempFocus.intention)
-        print("temp focus intention name is:", tempFocus.intention.name)
     }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        intentionsTable.setNumberOfRows(intentionsData.count, withRowType: "IntentionRow")
+        intentionsTable.setNumberOfRows(testIntentions.count, withRowType: "IntentionRow")
         
         for index in 0..<intentionsTable.numberOfRows {
             guard let controller = intentionsTable.rowController(at: index) as? IntentionRowController else {continue}
             
-            let intention = intentionsData[index]
+            let intention = testIntentions[index]
             
-            controller.intentionName = intention.name
+            controller.intentionName = intention
             
-            if intention.name == focus.intention.name {
+            if intention == selected {
                 controller.isSelected = true
             } else {
                 controller.isSelected = false
@@ -54,22 +49,21 @@ class IntentionInterfaceController: WKInterfaceController {
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         guard let controller = intentionsTable.rowController(at: rowIndex) as? IntentionRowController else {return}
         
-        let intention = intentionsData[rowIndex]
+        let intention = testIntentions[rowIndex]
         
-        if intention.name == focus.intention.name {
+        if intention == selected {
             controller.isSelected = false
             selected = ""
         } else {
-            for index in 0..<intentionsData.count {
-                if intentionsData[index].name == focus.intention.name {
+            for index in 0..<testIntentions.count {
+                if testIntentions[index] == selected {
                     guard let selectedController = intentionsTable.rowController(at: index) as? IntentionRowController else {return}
                     selectedController.isSelected = false
                 }
             }
             
             controller.isSelected = true
-            focus.intention = intention
-            focus.began = Date()
+            selected = intention
         }
     }
 }
