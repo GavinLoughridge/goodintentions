@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import WatchConnectivity
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
 
-//        if WCSession.isSupported() {
-//            let session = WCSession.default
-//            session.delegate = self
-//            session.activate()
-//        }
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         return true
     }
 
@@ -52,27 +52,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-//extension AppDelegate: WCSessionDelegate {
-//
-//    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-//        print("Message received: ",message)
-//    }
-//
-//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-//    }
-//
-//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-//    }
-//
-//
-//
-//    //below 3 functions are needed to be able to connect to several Watches
-//
-//    func sessionDidDeactivate(_ session: WCSession) {
-//        // Begin the activation process for the new Apple Watch.
-//        WCSession.default.activate()
-//    }
-//
-//    func sessionDidBecomeInactive(_ session: WCSession) {}
-//}
+extension AppDelegate: WCSessionDelegate {
+
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("Message received: ",message)
+    }
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
+
+    //below 3 functions are needed to be able to connect to several Watches
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        // Begin the activation process for the new Apple Watch.
+        WCSession.default.activate()
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+}
 

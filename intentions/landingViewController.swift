@@ -9,7 +9,7 @@
 import UIKit
 import WatchConnectivity
 
-class landingViewController: UIViewController, WCSessionDelegate {
+class landingViewController: UIViewController {
     
     // MARK: properties
 
@@ -23,27 +23,7 @@ class landingViewController: UIViewController, WCSessionDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if WCSession.isSupported() {
-            let session = WCSession.default
-            session.delegate = self
-            session.activate()
-        }
     }
-    
-//    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-//        print("Message received: ",message)
-//    }
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-    }
-
-    func sessionDidDeactivate(_ session: WCSession) {
-        // Begin the activation process for the new Apple Watch.
-        WCSession.default.activate()
-    }
-
-    func sessionDidBecomeInactive(_ session: WCSession) {}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
