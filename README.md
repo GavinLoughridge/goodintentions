@@ -18,3 +18,9 @@ Good intentions is a personal time tracking app that works in three simple steps
 3. Unselect the intention when you’re done.
 
 goodIntentions will keep track of how much time you have spent on each of our intentions and show you your progress with a simple pie chart. To help you keep focused on the present, your intention progress will automatically reset. This will happen every night at midnight for daily intentions and every Sunday at midnight for weekly intentions. This lets you continually renew your commitment to your intentions. If you ever want to remove an intention completely, just swipe left on it and select delete.
+
+## Screenshots
+
+![simulator screen shot - iphone 6 - home](https://user-images.githubusercontent.com/8572233/35788444-9f9fad52-09fa-11e8-8a2f-689a1d202eb4.png)
+![simulator screen shot - iphone 6 - exercise](https://user-images.githubusercontent.com/8572233/35788449-a3a2409a-09fa-11e8-9747-2faee9c4c90a.png)
+![simulator screen shot - iphone 6 - chart](https://user-images.githubusercontent.com/8572233/35788450-a59dff4c-09fa-11e8-885c-326ca71fde57.png)
