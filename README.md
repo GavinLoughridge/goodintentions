@@ -22,7 +22,7 @@ goodIntentions will keep track of how much time you have spent on each of our in
 ## Screenshots
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/8572233/35788444-9f9fad52-09fa-11e8-8a2f-689a1d202eb4.png" width="100" />
-  <img src="https://user-images.githubusercontent.com/8572233/35788449-a3a2409a-09fa-11e8-9747-2faee9c4c90a.png" width="100" /> 
-  <img src="https://user-images.githubusercontent.com/8572233/35788450-a59dff4c-09fa-11e8-885c-326ca71fde57.png" width="100" />
+  <img src="https://user-images.githubusercontent.com/8572233/35788444-9f9fad52-09fa-11e8-8a2f-689a1d202eb4.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/8572233/35788449-a3a2409a-09fa-11e8-9747-2faee9c4c90a.png" width="200" /> 
+  <img src="https://user-images.githubusercontent.com/8572233/35788450-a59dff4c-09fa-11e8-885c-326ca71fde57.png" width="200" />
 </p>
