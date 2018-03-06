@@ -16,10 +16,6 @@ class IntentionInterfaceController: WKInterfaceController {
     var focus = String()
     var intentions = [String]()
     
-    @IBAction func loadButtonClicked(_ sender: WKInterfaceButton) {
-        getModel()
-    }
-    
     override func willActivate() {
         super.willActivate()
         if WCSession.isSupported() {

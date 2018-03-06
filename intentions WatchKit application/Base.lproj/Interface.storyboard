@@ -29,11 +29,6 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <button width="1" alignment="left" title="Load" id="xuh-kv-f57">
-                            <connections>
-                                <action selector="loadButtonClicked:" destination="yop-RM-hfa" id="Y5L-wa-yyj"/>
-                            </connections>
-                        </button>
                     </items>
                     <connections>
                         <outlet property="intentionsTable" destination="Rl9-Iv-8Im" id="qvr-8t-NJ9"/>
