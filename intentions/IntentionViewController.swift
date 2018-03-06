@@ -1,5 +1,5 @@
 //
-//  landingViewController.swift
+//  IntentionViewController.swift
 //  intentions
 //
 //  Created by Gavin Loughridge on 11/26/17.
@@ -9,7 +9,7 @@
 import UIKit
 import WatchConnectivity
 
-class landingViewController: UIViewController {
+class IntentionViewController: UIViewController {
     
     // MARK: properties
 
@@ -19,7 +19,7 @@ class landingViewController: UIViewController {
     @IBOutlet weak var indicatorGoalTime: UILabel!
     @IBOutlet weak var indicatorProgressTime: UILabel!
     @IBOutlet weak var indicatorProgressPercent: UILabel!
-    @IBOutlet weak var indicatorProgressChart: progressChart!
+    @IBOutlet weak var indicatorProgressChart: ProgressChart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,61 +33,46 @@ class landingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.removeObserver(self,
-                                                  name: focusUpdated,
+                                                  name: IntentionController.sharedInstance.updatedNotification,
                                                   object: nil)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateIndicator),
-                                               name: focusUpdated,
+                                               selector: #selector(updateIndicator(_:)),
+                                               name: IntentionController.sharedInstance.updatedNotification,
                                                object: nil)
+        print("requesting update from main will appear")
+        IntentionController.sharedInstance.requestUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         NotificationCenter.default.removeObserver(self,
-                                                  name: focusUpdated,
+                                                  name: IntentionController.sharedInstance.updatedNotification,
                                                   object: nil)
     }
     
     // MARK: public functions
     
-    @objc func updateIndicator() {
-        print("updating indicator")
-        // only update the focus indicator if a valid focus exists
-        if (focus.intention.name != "") {
-            updateFocusIndicator(intention: focus.intention)
+    @objc func updateIndicator(_ notification: NSNotification) {
+        if let model = notification.userInfo?["model"] as? IntentionModel.Model {
+            if (model.focus.isSet) {
+                updateFocusIndicator(intention: model.focus.intention)
+                indicatorUnfocused.alpha = 0
+                indicatorFocused.alpha = 1
+            } else {
+                indicatorUnfocused.alpha = 1
+                indicatorFocused.alpha = 0
+            }
         }
-        setIndicator()
-        saveFocus()
     }
     
     // MARK: private functions
     
     private func updateFocusIndicator(intention: Intention) {
         indicatorName.text = intention.name
-        
-        indicatorGoalTime.text = String(floor(intention.goalConverted * 10) / 10) + intention.goalUnit
-        
-        indicatorProgressTime.text = String(floor(intention.progressConverted * 10) / 10) + intention.goalUnit
-        
+        indicatorGoalTime.text = intention.goalText
+        indicatorProgressTime.text = intention.progressText
         indicatorProgressPercent.text = String(Int(floor((intention.progressInMinutes / intention.goalInMinutes) * 100))) + "%"
-        
         indicatorProgressChart.chartValue = Float(intention.progressInMinutes / intention.goalInMinutes)
-    }
-    
-    private func setIndicator() {
-        if (focus.intention.name != "") {
-            indicatorUnfocused.alpha = 0
-            indicatorFocused.alpha = 1
-        } else {
-            //
-            indicatorUnfocused.alpha = 1
-            indicatorFocused.alpha = 0
-        }
-    }
-    
-    // save and load functions
-    private func saveFocus() {
-        NSKeyedArchiver.archiveRootObject(focus, toFile: Focus.ArchiveURL.path)
     }
 }

@@ -17,7 +17,7 @@ class Focus: NSObject, NSCoding {
     
     @objc dynamic var intention = Intention() {
         didSet {
-            print("just set intention to:", focus.intention.name)
+            print("EVENT: focus intention changed")
             NotificationCenter.default.post(name: focusUpdated, object: nil)
         }
     }

@@ -8,16 +8,17 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
+
+var testIntentions = [
+    "meditation",
+    "run",
+    "study"
+]
 
 class IntentionInterfaceController: WKInterfaceController {
     
     @IBOutlet var intentionsTable: WKInterfaceTable!
-    
-    var testIntentions = [
-        "meditation",
-        "run",
-        "study"
-    ]
     
     var selected = "meditation"
     
@@ -66,4 +67,8 @@ class IntentionInterfaceController: WKInterfaceController {
             selected = intention
         }
     }
+}
+
+extension IntentionInterfaceController: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 }

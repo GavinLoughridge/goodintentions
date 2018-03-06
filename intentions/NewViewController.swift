@@ -66,12 +66,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        intention.displayHours = goalUnitHours.isOn
-        
         intention.progressResetPeriod = resetPeriodUnitWeek.isOn ? "week" : "day"
         
         do {
-            let validator = Intention.Validator()
+            let validator = Intention.IntentionValidator()
             try validator.validate(intention: intention)
         } catch {
             let alert = UIAlertController(title: "Invalid Input",
@@ -79,11 +77,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                           preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
+
             return
         }
         
-        performSegue(withIdentifier: "unwindSegueToIntentionList", sender: self)
+        IntentionController.sharedInstance.addIntention(intention: intention)
+        dismiss(animated: true, completion: nil)
+//        performSegue(withIdentifier: "unwindSegueToIntentionList", sender: self)
     }
     
     
