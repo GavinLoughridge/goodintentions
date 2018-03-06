@@ -18,14 +18,14 @@
         <!--Intention Table View Controller-->
         <scene sceneID="ozA-iw-hKn">
             <objects>
-                <tableViewController id="u3M-6r-v3j" customClass="intentionTableViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="u3M-6r-v3j" customClass="IntentionTableViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xri-8Y-wYG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="473"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.85490196078431369" green="0.9882352941176471" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="intentionTableViewCell" rowHeight="90" id="FcO-hD-HMu" customClass="intentionTableViewCell" customModule="intentions" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IntentionTableViewCell" rowHeight="90" id="FcO-hD-HMu" customClass="IntentionTableViewCell" customModule="intentions" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FcO-hD-HMu" id="xfq-ij-NkH">
@@ -41,7 +41,7 @@
                                                     <color key="textColor" red="0.2274509804" green="0.37647058820000001" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-Ve-vcv" customClass="progressChart" customModule="intentions" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-Ve-vcv" customClass="ProgressChart" customModule="intentions" customModuleProvider="target">
                                                     <rect key="frame" x="242.5" y="0.0" width="68.5" height="68.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -90,9 +90,9 @@
         <!--GOOD INTENTIONS-->
         <scene sceneID="kcR-NN-UfY">
             <objects>
-                <viewController id="eAQ-3I-wkC" customClass="landingViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eAQ-3I-wkC" customClass="IntentionViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z6E-rR-W9B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3s2-5N-Q8v">
@@ -189,7 +189,7 @@
                                                                             </stackView>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-ar-NZZ" customClass="progressChart" customModule="intentions" customModuleProvider="target">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-ar-NZZ" customClass="ProgressChart" customModule="intentions" customModuleProvider="target">
                                                                         <rect key="frame" x="196" y="0.0" width="79" height="79"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
@@ -282,7 +282,7 @@ FOCUSED ON
                         <outlet property="indicatorFocused" destination="r5i-SO-68K" id="YQH-Fe-Ya0"/>
                         <outlet property="indicatorGoalTime" destination="vza-1H-u7c" id="hgR-bX-4bF"/>
                         <outlet property="indicatorName" destination="1P9-pq-YaJ" id="gdm-OH-Xix"/>
-                        <outlet property="indicatorProgressChart" destination="P6m-ar-NZZ" id="l1q-o6-Kz2"/>
+                        <outlet property="indicatorProgressChart" destination="P6m-ar-NZZ" id="6bC-4s-0Tp"/>
                         <outlet property="indicatorProgressPercent" destination="iOm-IA-wkA" id="FDR-Vn-ISP"/>
                         <outlet property="indicatorProgressTime" destination="Ubp-HD-3VB" id="T4p-pp-kCO"/>
                         <outlet property="indicatorUnfocused" destination="dI5-Zu-Hle" id="4wk-EC-4E1"/>
@@ -295,9 +295,9 @@ FOCUSED ON
         <!--NEW INTENTION-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NewViewController" customModule="intentions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-l8-JMO">
@@ -426,27 +426,25 @@ FOCUSED ON
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2cv-Kd-AO1">
                             <color key="tintColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="cancel:" destination="BYZ-38-t0r" id="oXo-bK-7uP"/>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="py9-Es-zAG"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="SET" id="JV0-JZ-xdW">
                             <color key="tintColor" red="0.96078431369999995" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="attemptSave:" destination="BYZ-38-t0r" id="Bef-Z2-8z6"/>
+                                <action selector="attemptSave:" destination="BYZ-38-t0r" id="u34-ep-WKo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="goalTextField" destination="KuS-PI-KyZ" id="R7P-F8-Q4N"/>
-                        <outlet property="goalUnitHours" destination="pJW-Uu-7I0" id="vcd-si-7FC"/>
-                        <outlet property="nameTextField" destination="H4d-Pl-Buj" id="pkZ-Yt-OEO"/>
-                        <outlet property="resetPeriodUnitWeek" destination="64I-KZ-i6g" id="G8O-FD-Uu1"/>
-                        <outlet property="saveButton" destination="JV0-JZ-xdW" id="YPf-Fw-9bv"/>
-                        <segue destination="Knw-RU-eLF" kind="unwind" identifier="unwindSegueToIntentionList" unwindAction="unwindToIntentionListWithSender:" id="oFG-YH-jwr"/>
+                        <outlet property="goalTextField" destination="KuS-PI-KyZ" id="gHq-xH-3Qb"/>
+                        <outlet property="goalUnitHours" destination="pJW-Uu-7I0" id="88Y-Ha-bog"/>
+                        <outlet property="nameTextField" destination="H4d-Pl-Buj" id="FRd-Hx-J1P"/>
+                        <outlet property="resetPeriodUnitWeek" destination="64I-KZ-i6g" id="WeP-cV-9ZH"/>
+                        <outlet property="saveButton" destination="JV0-JZ-xdW" id="3ve-uE-Lng"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="Knw-RU-eLF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1700" y="124.58770614692655"/>
         </scene>
@@ -456,6 +454,7 @@ FOCUSED ON
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z6o-Ns-frO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="64y-DJ-HK8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.29803921568627451" green="0.59999999999999998" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -479,6 +478,7 @@ FOCUSED ON
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="baH-Fw-axR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IRc-XT-Y8W">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -498,6 +498,6 @@ FOCUSED ON
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fn6-5F-EV5"/>
+        <segue reference="H1x-Td-NtO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,17 +9,11 @@
 import UIKit
 import os.log
 
-var focusUpdated = Notification.Name("focusUpdated")
-var focus = Focus()
-
 class Focus: NSObject, NSCoding {
     //Mark: Properties
     
-    @objc dynamic var intention = Intention() {
-        didSet {
-            NotificationCenter.default.post(name: focusUpdated, object: nil)
-        }
-    }
+    var intention = Intention()
+    var isSet = false
     var began = Date()
     
     //MARK: Archiving Paths
@@ -31,12 +25,14 @@ class Focus: NSObject, NSCoding {
     
     struct PropertyKey {
         static let intention = "intention"
+        static let isSet = "isSet"
         static let began = "began"
     }
     
     //MARK: NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(intention, forKey: PropertyKey.intention)
+        aCoder.encode(isSet, forKey: PropertyKey.isSet)
         aCoder.encode(began, forKey: PropertyKey.began)
     }
     
@@ -48,6 +44,9 @@ class Focus: NSObject, NSCoding {
         if let intention = aDecoder.decodeObject(forKey: PropertyKey.intention) as? Intention {
             self.intention = intention
         }
+        
+        let isSet = aDecoder.decodeBool(forKey: PropertyKey.isSet)
+        self.isSet = isSet
         
         if let began = aDecoder.decodeObject(forKey: PropertyKey.began) as? Date {
             self.began = began

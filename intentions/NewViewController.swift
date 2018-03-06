@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NewViewController.swift
 //  intentions
 //
 //  Created by Gavin Loughridge on 11/23/17.
@@ -9,16 +9,15 @@
 import UIKit
 import os.log
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class NewViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var goalTextField: UITextField!
     @IBOutlet weak var goalUnitHours: UISwitch!
     @IBOutlet weak var resetPeriodUnitWeek: UISwitch!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    var intention = Intention()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Navigation
     
+
     @IBAction func attemptSave(_ sender: UIBarButtonItem) {
+        let intention = Intention()
         
         intention.name = (nameTextField.text ?? "").uppercased()
         if let text = goalTextField.text {
@@ -65,25 +66,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 intention.goalInMinutes = (goalUnitHours.isOn ? (time * 60.0) : time)
             }
         }
-        
-        intention.displayHours = goalUnitHours.isOn
-        
+
         intention.progressResetPeriod = resetPeriodUnitWeek.isOn ? "week" : "day"
-        
+
         do {
-            let validator = Intention.Validator()
+            let validator = Intention.IntentionValidator()
             try validator.validate(intention: intention)
+            
+            for existingIntention in IntentionModel.sharedInstance.model.intentions {
+                if existingIntention.name == intention.name {
+                    throw ValidationError.reason("Sorry, there is already an intention with that name.")
+                }
+            }
         } catch {
             let alert = UIAlertController(title: "Invalid Input",
                                           message: error.localizedDescription,
                                           preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+
+            return
         }
-        
-        performSegue(withIdentifier: "unwindSegueToIntentionList", sender: self)
+
+        IntentionModel.sharedInstance.addIntention(newIntention: intention)
+        dismiss(animated: true, completion: nil)
     }
-    
+
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
