@@ -33,21 +33,19 @@ class IntentionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.removeObserver(self,
-                                                  name: IntentionController.sharedInstance.updatedNotification,
+                                                  name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateIndicator(_:)),
-                                               name: IntentionController.sharedInstance.updatedNotification,
+                                               name: IntentionModel.sharedInstance.updatedNotification,
                                                object: nil)
-        print("requesting update from main will appear")
-        IntentionController.sharedInstance.requestUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         NotificationCenter.default.removeObserver(self,
-                                                  name: IntentionController.sharedInstance.updatedNotification,
+                                                  name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
     }
     

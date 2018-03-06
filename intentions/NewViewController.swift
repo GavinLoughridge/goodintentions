@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NewViewController.swift
 //  intentions
 //
 //  Created by Gavin Loughridge on 11/23/17.
@@ -9,16 +9,15 @@
 import UIKit
 import os.log
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class NewViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var goalTextField: UITextField!
     @IBOutlet weak var goalUnitHours: UISwitch!
     @IBOutlet weak var resetPeriodUnitWeek: UISwitch!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    var intention = Intention()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Navigation
     
+
     @IBAction func attemptSave(_ sender: UIBarButtonItem) {
+        let intention = Intention()
         
         intention.name = (nameTextField.text ?? "").uppercased()
         if let text = goalTextField.text {
@@ -65,9 +66,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 intention.goalInMinutes = (goalUnitHours.isOn ? (time * 60.0) : time)
             }
         }
-        
+
         intention.progressResetPeriod = resetPeriodUnitWeek.isOn ? "week" : "day"
-        
+
         do {
             let validator = Intention.IntentionValidator()
             try validator.validate(intention: intention)
@@ -80,12 +81,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
             return
         }
-        
-        IntentionController.sharedInstance.addIntention(intention: intention)
+
+        IntentionModel.sharedInstance.addIntention(newIntention: intention)
         dismiss(animated: true, completion: nil)
-//        performSegue(withIdentifier: "unwindSegueToIntentionList", sender: self)
     }
-    
+
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

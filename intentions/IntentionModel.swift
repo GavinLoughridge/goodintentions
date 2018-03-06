@@ -1,5 +1,5 @@
 //
-//  IntentionController.swift
+//  IntentionModel.swift
 //  intentions
 //
 //  Created by Gavin Loughridge on 3/5/18.
@@ -8,18 +8,12 @@
 
 import Foundation
 
-fileprivate let modelController = IntentionModel
+fileprivate let modelController = IntentionModel()
 
 class IntentionModel {
-    struct Focus {
-        var intention = Intention()
-        var isSet = false
-        var began = Date()
-    }
-    
     struct Model {
         var focus = Focus()
-        var intentions = []
+        var intentions = [Intention]()
     }
     
     var model = Model()
@@ -31,25 +25,26 @@ class IntentionModel {
     }
     
     func deleteIntention(oldIntention: Intention, index: Int) {
+        updateIntentions()
         if (oldIntention.name == model.focus.intention.name) {
             model.focus = Focus()
         }
         model.intentions.remove(at: index)
-        updateIntentions()
+        saveModel()
         notifyViews()
     }
     
     func addIntention(newIntention: Intention) {
+        updateIntentions()
         model.intentions.append(newIntention)
         saveModel()
-        updateIntentions()
         notifyViews()
     }
     
     func setFocus(intention: Intention) {
         updateIntentions()
         
-        if intention.name == model.focus.name {
+        if intention.name == model.focus.intention.name {
             model.focus = Focus()
         } else {
             model.focus.intention = intention
@@ -57,6 +52,7 @@ class IntentionModel {
             model.focus.isSet = true
         }
         
+        saveModel()
         notifyViews()
     }
     
@@ -126,9 +122,9 @@ class IntentionModel {
     private func updateIntentions() {
         for intention in model.intentions {
             if (intention.name == model.focus.intention.name) {
-                updatePosition(intention: model.focus.intention, began: model.focus.began)
+                updatePosition(intention: intention, began: model.focus.began)
                 model.focus.began = Date()
-                intention = model.focus.intention
+                model.focus.intention = intention
             } else {
                 updatePosition(intention: intention)
             }
@@ -136,16 +132,20 @@ class IntentionModel {
     }
     
     private func notifyViews() {
-        NotificationCenter.default.post(name: modelUpdated, object: nil, userInfo: ["model": model])
+        NotificationCenter.default.post(name: updatedNotification, object: nil, userInfo: ["model": model])
     }
+    
+    
     
     private func saveModel() {
-        NSKeyedArchiver.archiveRootObject(model, toFile: Intention.ArchiveURL.path)
+        NSKeyedArchiver.archiveRootObject(model.focus, toFile: Focus.ArchiveURL.path)
+        NSKeyedArchiver.archiveRootObject(model.intentions, toFile: Intention.ArchiveURL.path)
     }
     
-    private func loadModel() {
-        if let savedModel = NSKeyedUnarchiver.unarchiveObject(withFile: Intention.ArchiveURL.path) as? IntentionModel.Model {
-            model = savedModel
+    func loadModel() {
+        if let savedIntentions = NSKeyedUnarchiver.unarchiveObject(withFile: Intention.ArchiveURL.path) as? [Intention], let savedFocus = NSKeyedUnarchiver.unarchiveObject(withFile: Focus.ArchiveURL.path) as? Focus {
+            model.intentions = savedIntentions
+            model.focus = savedFocus
         }
     }
 }

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28173B992014E33700A2EFF0 /* Intention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AF21FC795C200987520 /* Intention.swift */; };
+		28176074204E733600E043D6 /* Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28176073204E733600E043D6 /* Focus.swift */; };
 		281CF7CB1FCB6ED900F66D35 /* IntentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CF7CA1FCB6ED900F66D35 /* IntentionViewController.swift */; };
-		2822A08F204E1389003341A8 /* IntentionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A08E204E1389003341A8 /* IntentionController.swift */; };
+		2822A08F204E1389003341A8 /* IntentionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A08E204E1389003341A8 /* IntentionModel.swift */; };
 		28295D53201572DD007D15D5 /* IntentionRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28295D52201572DD007D15D5 /* IntentionRowController.swift */; };
 		28614A9D1FC75ABE00987520 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614A9C1FC75ABE00987520 /* AppDelegate.swift */; };
 		28614A9F1FC75ABE00987520 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614A9E1FC75ABE00987520 /* NewViewController.swift */; };
@@ -73,8 +73,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		28176073204E733600E043D6 /* Focus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Focus.swift; sourceTree = "<group>"; };
 		281CF7CA1FCB6ED900F66D35 /* IntentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionViewController.swift; sourceTree = "<group>"; };
-		2822A08E204E1389003341A8 /* IntentionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionController.swift; sourceTree = "<group>"; };
+		2822A08E204E1389003341A8 /* IntentionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionModel.swift; sourceTree = "<group>"; };
 		28295D52201572DD007D15D5 /* IntentionRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionRowController.swift; sourceTree = "<group>"; };
 		2829C7E41FCA4B6200B0BF50 /* intentions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intentions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28614A9C1FC75ABE00987520 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,7 +143,8 @@
 				28614AA31FC75ABE00987520 /* Assets.xcassets */,
 				28614AA51FC75ABE00987520 /* LaunchScreen.storyboard */,
 				28614AA81FC75ABE00987520 /* Info.plist */,
-				2822A08E204E1389003341A8 /* IntentionController.swift */,
+				2822A08E204E1389003341A8 /* IntentionModel.swift */,
+				28176073204E733600E043D6 /* Focus.swift */,
 				28A534DD1FC7E89500D2A932 /* IntentionTableViewController.swift */,
 				28614AF21FC795C200987520 /* Intention.swift */,
 			);
@@ -314,7 +316,8 @@
 				281CF7CB1FCB6ED900F66D35 /* IntentionViewController.swift in Sources */,
 				28614AF71FC7A7AD00987520 /* IntentionTableViewCell.swift in Sources */,
 				28614A9D1FC75ABE00987520 /* AppDelegate.swift in Sources */,
-				2822A08F204E1389003341A8 /* IntentionController.swift in Sources */,
+				28176074204E733600E043D6 /* Focus.swift in Sources */,
+				2822A08F204E1389003341A8 /* IntentionModel.swift in Sources */,
 				28A2AEE11FC7DA9300B4E4CF /* ProgressChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +329,6 @@
 				28295D53201572DD007D15D5 /* IntentionRowController.swift in Sources */,
 				28ADDF022013FE3B007BD086 /* NotificationController.swift in Sources */,
 				28ADDF002013FE3B007BD086 /* ExtensionDelegate.swift in Sources */,
-				28173B992014E33700A2EFF0 /* Intention.swift in Sources */,
 				28DE0DDA2015554C00D88F8F /* IntentionInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
