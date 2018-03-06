@@ -28,6 +28,7 @@
 		28ADDF042013FE3B007BD086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28ADDF032013FE3B007BD086 /* Assets.xcassets */; };
 		28ADDF092013FE3B007BD086 /* intentions WatchKit application.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28ADDEEC2013FE3B007BD086 /* intentions WatchKit application.app */; };
 		28DE0DDA2015554C00D88F8F /* IntentionInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE0DD92015554C00D88F8F /* IntentionInterfaceController.swift */; };
+		28FE4A2E204EEE210064FC94 /* Intention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28614AF21FC795C200987520 /* Intention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FE4A2E204EEE210064FC94 /* Intention.swift in Sources */,
 				28295D53201572DD007D15D5 /* IntentionRowController.swift in Sources */,
 				28ADDF022013FE3B007BD086 /* NotificationController.swift in Sources */,
 				28ADDF002013FE3B007BD086 /* ExtensionDelegate.swift in Sources */,

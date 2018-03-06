@@ -17,15 +17,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        if WCSession.isSupported() {
-            print("WCSession supported")
-            let session = WCSession.default
-            session.delegate = self
-            session.activate()
-            if session.isReachable {
-                print("WCSession reachable")
-            }
-        }
     }
 
     func applicationWillResignActive() {

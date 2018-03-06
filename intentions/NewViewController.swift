@@ -72,6 +72,12 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         do {
             let validator = Intention.IntentionValidator()
             try validator.validate(intention: intention)
+            
+            for existingIntention in IntentionModel.sharedInstance.model.intentions {
+                if existingIntention.name == intention.name {
+                    throw ValidationError.reason("Sorry, there is already an intention with that name.")
+                }
+            }
         } catch {
             let alert = UIAlertController(title: "Invalid Input",
                                           message: error.localizedDescription,

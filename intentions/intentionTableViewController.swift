@@ -29,14 +29,13 @@ class IntentionTableViewController: UITableViewController {
                                                name: .UIApplicationDidBecomeActive,
                                                object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: IntentionController.sharedInstance.updatedNotification,
+                                                  name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateTable(_:)),
-                                               name: IntentionController.sharedInstance.updatedNotification,
+                                               name: IntentionModel.sharedInstance.updatedNotification,
                                                object: nil)
-        print("requesting update from table will appear")
-        IntentionController.sharedInstance.requestUpdate()
+        IntentionModel.sharedInstance.requestUpdate()
     }
     
     // on disappearance remove observers
@@ -46,14 +45,13 @@ class IntentionTableViewController: UITableViewController {
                                                name: .UIApplicationDidBecomeActive,
                                                object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: IntentionController.sharedInstance.updatedNotification,
+                                                  name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
     }
     
     // on becoming active update the model
     @objc func applicationDidBecomeActive() {
-        print("requesting update from table became active")
-        IntentionController.sharedInstance.requestUpdate()
+        IntentionModel.sharedInstance.requestUpdate()
     }
     
     @objc func updateTable(_ notification: NSNotification) {
@@ -80,20 +78,23 @@ class IntentionTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Intention view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "intentionTableViewCell"
+        let cellIdentifier = "IntentionTableViewCell"
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? intentionTableViewCell, let intention = model.intentions[indexPath.row] as? Intention {
-            
-            cell.nameLabel.text = intention.name
-            if intention.name == model.focus.intention.name {
-                cell.backgroundColor = UIColor(red: 252 / 255, green: 239 / 255, blue: 239 / 255, alpha: 1)
-            } else {
-                cell.backgroundColor = UIColor(red: 218 / 255, green: 252 / 255, blue: 241 / 255, alpha: 1)
-            }
-            cell.progressChart.chartValue = Float(intention.progressInMinutes / intention.goalInMinutes)
-            
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IntentionTableViewCell else {
+            fatalError("could not deque cell")
         }
+        
+        let intention = model.intentions[indexPath.row]
+        
+        cell.nameLabel.text = intention.name
+        if intention.name == model.focus.intention.name {
+            cell.backgroundColor = UIColor(red: 252 / 255, green: 239 / 255, blue: 239 / 255, alpha: 1)
+        } else {
+            cell.backgroundColor = UIColor(red: 218 / 255, green: 252 / 255, blue: 241 / 255, alpha: 1)
+        }
+        cell.progressChart.chartValue = Float(intention.progressInMinutes / intention.goalInMinutes)
+
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -105,8 +106,9 @@ class IntentionTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             let intention = model.intentions[indexPath.row]
+            model.intentions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            IntentionController.sharedInstance.deleteIntention(intention: intention, index: indexPath.row)
+            IntentionModel.sharedInstance.deleteIntention(oldIntention: intention, index: indexPath.row)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -114,23 +116,6 @@ class IntentionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let intention = model.intentions[indexPath.row]
-        IntentionController.sharedInstance.setFocus(intention: intention)
+        IntentionModel.sharedInstance.setFocus(intention: intention)
     }
-    
-    // MARK: Actions
-    
-//    @IBAction func unwindToIntentionList(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.source as? ViewController {
-//            // Add a new intention
-//            let intention = sourceViewController.intention
-//            let newIndexPath = IndexPath(row: intentionsData.count, section: 0)
-//            
-//            intentionsData.append(intention)
-//            tableView.insertRows(at: [newIndexPath], with: .automatic)
-//        }
-//    }
-    
-    // MARK: Pirvate Methods
-//    do this somewhere
-//    self.tableView.reloadData()
 }

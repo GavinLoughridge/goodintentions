@@ -24,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             session.delegate = self
             session.activate()
         }
+        
+        NotificationCenter.default.removeObserver(self,
+                                                  name: IntentionModel.sharedInstance.updatedNotification,
+                                                  object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateContext(_:)),
+                                               name: IntentionModel.sharedInstance.updatedNotification,
+                                               object: nil)
         return true
     }
 
@@ -47,13 +55,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        NotificationCenter.default.removeObserver(self,
+                                                  name: IntentionModel.sharedInstance.updatedNotification,
+                                                  object: nil)
     }
 }
 
 extension AppDelegate: WCSessionDelegate {
 
+//    update focus when changed from a watch
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("Message received: ",message)
+        guard let focusName = message["clicked"] as? String else{
+            return
+        }
+        
+        for intention in IntentionModel.sharedInstance.model.intentions {
+            if intention.name == focusName {
+                IntentionModel.sharedInstance.setFocus(intention: intention)
+            }
+        }
+    }
+    
+//    send string based model to a watch when requested
+    func session(_ session: WCSession,
+                          didReceiveMessage message: [String : Any],
+                          replyHandler: @escaping ([String : Any]) -> Void) {
+        var focus = String()
+        var intentions = [String]()
+        
+        focus = IntentionModel.sharedInstance.model.focus.intention.name
+        for intention in IntentionModel.sharedInstance.model.intentions {
+            intentions.append(intention.name)
+        }
+        
+        replyHandler(["focus": focus, "intentions": intentions])
+    }
+
+//    send string based model to watch any time it changes
+    @objc func updateContext(_ notification: NSNotification) {
+        if let model = notification.userInfo?["model"] as? IntentionModel.Model {
+            let session = WCSession.default
+            var focus = String()
+            var intentions = [String]()
+            
+            focus = model.focus.intention.name
+            for intention in model.intentions {
+                intentions.append(intention.name)
+            }
+            
+            do {
+                try session.updateApplicationContext(["focus": focus, "intentions": intentions])
+            } catch {
+                print("error")
+            }
+        }
     }
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {

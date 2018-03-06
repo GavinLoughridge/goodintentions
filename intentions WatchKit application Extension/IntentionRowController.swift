@@ -12,23 +12,21 @@ class IntentionRowController: NSObject {
 
     @IBOutlet var intentionLabel: WKInterfaceLabel!
     @IBOutlet var intentionGroup: WKInterfaceGroup!
+    var active = UIColor(red: 4 / 255, green: 222 / 255, blue: 113 / 255, alpha: 1)
+    var inactive = UIColor(red: 35 / 255, green: 35 / 255, blue: 35 / 255, alpha: 1)
     
-    var intentionName: String? {
+    var intentionName = "" {
         didSet {
-            guard let intentionName = intentionName else {return}
-            
             intentionLabel.setText(intentionName)
         }
     }
     
-    var isSelected: Bool? {
+    var isSelected = false {
         didSet {
-            guard let isSelected = isSelected else {return}
-            
             if isSelected {
-                intentionGroup.setBackgroundColor(UIColor.blue)
+                intentionGroup.setBackgroundColor(active)
             } else {
-                intentionGroup.setBackgroundColor(UIColor.red)
+                intentionGroup.setBackgroundColor(inactive)
             }
         }
     }
