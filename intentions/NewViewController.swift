@@ -44,6 +44,7 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         )
     }
     
+//    close keyboard on return for text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return false
@@ -56,11 +57,13 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Navigation
     
-
+//    try to create and save a new intention
     @IBAction func attemptSave(_ sender: UIBarButtonItem) {
         let intention = Intention()
         
         intention.name = (nameTextField.text ?? "").uppercased()
+        
+//        convert goal time to minutes
         if let text = goalTextField.text {
             if let time = Float(text) {
                 intention.goalInMinutes = (goalUnitHours.isOn ? (time * 60.0) : time)
@@ -70,15 +73,18 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         intention.progressResetPeriod = resetPeriodUnitWeek.isOn ? "week" : "day"
 
         do {
+//            make sure new intention is valid
             let validator = Intention.IntentionValidator()
             try validator.validate(intention: intention)
             
+//            make sure new intention has a unique name
             for existingIntention in IntentionModel.sharedInstance.model.intentions {
                 if existingIntention.name == intention.name {
                     throw ValidationError.reason("Sorry, there is already an intention with that name.")
                 }
             }
         } catch {
+//            display alert message if validation failed
             let alert = UIAlertController(title: "Invalid Input",
                                           message: error.localizedDescription,
                                           preferredStyle: UIAlertControllerStyle.alert)
@@ -88,11 +94,12 @@ class NewViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
+//        add intention to shared data model and return to main screen
         IntentionModel.sharedInstance.addIntention(newIntention: intention)
         dismiss(animated: true, completion: nil)
     }
 
-    
+//    return to main screen on cancel
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

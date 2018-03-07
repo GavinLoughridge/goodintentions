@@ -10,6 +10,7 @@ import UIKit
 
 class IntentionTableViewController: UITableViewController {
     
+//    set up local instance of model struct
     var model = IntentionModel.Model()
     
     // MARK: Properties
@@ -18,7 +19,7 @@ class IntentionTableViewController: UITableViewController {
     }
     
     // MARK: View functions
-    // on appearance set observers and then update the model
+    // on appearance set observers and then request updated model
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.removeObserver(self,
@@ -49,11 +50,12 @@ class IntentionTableViewController: UITableViewController {
                                                   object: nil)
     }
     
-    // on becoming active update the model
+    // on becoming active request updated model
     @objc func applicationDidBecomeActive() {
         IntentionModel.sharedInstance.requestUpdate()
     }
     
+//    set local model to match latest shared model and reload the table
     @objc func updateTable(_ notification: NSNotification) {
         if let updatedModel = notification.userInfo?["model"] as? IntentionModel.Model {
             model = updatedModel
@@ -80,19 +82,21 @@ class IntentionTableViewController: UITableViewController {
         // Intention view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "IntentionTableViewCell"
         
+//        ensure dequeued cell is an instance of IntentionTableViewCell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IntentionTableViewCell else {
-            fatalError("could not deque cell")
+            fatalError("could not dequeue cell as IntentionTableViewCell")
         }
         
+//        set cell data to coresponding intention data
         let intention = model.intentions[indexPath.row]
-        
         cell.nameLabel.text = intention.name
+        cell.progressChart.chartValue = Float(intention.progressInMinutes / intention.goalInMinutes)
+//        set intention color to match focus state
         if intention.name == model.focus.intention.name {
             cell.backgroundColor = UIColor(red: 252 / 255, green: 239 / 255, blue: 239 / 255, alpha: 1)
         } else {
             cell.backgroundColor = UIColor(red: 218 / 255, green: 252 / 255, blue: 241 / 255, alpha: 1)
         }
-        cell.progressChart.chartValue = Float(intention.progressInMinutes / intention.goalInMinutes)
 
         return cell
     }
@@ -102,9 +106,9 @@ class IntentionTableViewController: UITableViewController {
         return true
     }
 
+//    delete an intention on swipe delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             let intention = model.intentions[indexPath.row]
             model.intentions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -114,6 +118,7 @@ class IntentionTableViewController: UITableViewController {
         }    
     }
     
+//    on row select update coresponding intention
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let intention = model.intentions[indexPath.row]
         IntentionModel.sharedInstance.setFocus(intention: intention)

@@ -13,9 +13,12 @@ import WatchConnectivity
 class IntentionInterfaceController: WKInterfaceController {
     
     @IBOutlet var intentionsTable: WKInterfaceTable!
+    
+//    create local model variables
     var focus = String()
     var intentions = [String]()
     
+//    activate watch session
     override func willActivate() {
         super.willActivate()
         if WCSession.isSupported() {
@@ -29,6 +32,7 @@ class IntentionInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
     }
     
+//    on row selection send click data to phone app and update view and local model
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         if let controller = intentionsTable.rowController(at: rowIndex) as? IntentionRowController {
             let intention = intentions[rowIndex]
@@ -46,6 +50,7 @@ class IntentionInterfaceController: WKInterfaceController {
         }
     }
     
+//    request latest model from phone app and update local model on reply
     func getModel() {
         let session = WCSession.default
         if session.isReachable {
@@ -71,6 +76,7 @@ class IntentionInterfaceController: WKInterfaceController {
         }
     }
     
+//    send selection data to phone app
     func sendSelection(selection: String) {
         let session = WCSession.default
         if session.isReachable {
@@ -82,10 +88,12 @@ class IntentionInterfaceController: WKInterfaceController {
 }
 
 extension IntentionInterfaceController: WCSessionDelegate {
+//    request latest model on session activation
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         getModel()
     }
     
+//    update local model on changes to application context
     func session(_ session: WCSession,
                  didReceiveApplicationContext applicationContext: [String : Any]) {
         DispatchQueue.main.async() {
@@ -106,5 +114,4 @@ extension IntentionInterfaceController: WCSessionDelegate {
             }
         }
     }
-
 }

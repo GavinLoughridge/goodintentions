@@ -21,6 +21,7 @@ class IntentionRowController: NSObject {
         }
     }
     
+//    alter background color on change to selection state
     var isSelected = false {
         didSet {
             if isSelected {

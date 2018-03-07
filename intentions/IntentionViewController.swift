@@ -32,6 +32,8 @@ class IntentionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+//        add observer for model update notification
         NotificationCenter.default.removeObserver(self,
                                                   name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
@@ -44,6 +46,7 @@ class IntentionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+//        remove observer for model update notification
         NotificationCenter.default.removeObserver(self,
                                                   name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
@@ -51,6 +54,7 @@ class IntentionViewController: UIViewController {
     
     // MARK: public functions
     
+//    set the indicator state
     @objc func updateIndicator(_ notification: NSNotification) {
         if let model = notification.userInfo?["model"] as? IntentionModel.Model {
             if (model.focus.isSet) {
@@ -66,6 +70,7 @@ class IntentionViewController: UIViewController {
     
     // MARK: private functions
     
+//    set the indicator data
     private func updateFocusIndicator(intention: Intention) {
         indicatorName.text = intention.name
         indicatorGoalTime.text = intention.goalText

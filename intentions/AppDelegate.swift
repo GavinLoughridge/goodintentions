@@ -15,16 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
+        
+//        load shared data model
         IntentionModel.sharedInstance.loadModel()
 
+//        activate watch session
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
             session.activate()
         }
         
+//        add observer for model update notification
         NotificationCenter.default.removeObserver(self,
                                                   name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
@@ -55,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+//        remove observer for model update notification
         NotificationCenter.default.removeObserver(self,
                                                   name: IntentionModel.sharedInstance.updatedNotification,
                                                   object: nil)
@@ -63,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: WCSessionDelegate {
 
-//    update focus when changed from a watch
+//    update focus when its changed from a watch
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         guard let focusName = message["clicked"] as? String else{
             return
@@ -76,7 +81,7 @@ extension AppDelegate: WCSessionDelegate {
         }
     }
     
-//    send string based model to a watch when requested
+//    send string based data model to a watch when requested
     func session(_ session: WCSession,
                           didReceiveMessage message: [String : Any],
                           replyHandler: @escaping ([String : Any]) -> Void) {
